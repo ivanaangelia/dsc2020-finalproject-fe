@@ -8,31 +8,39 @@ var request = new XMLHttpRequest()
 var semuaData = []
 request.open('GET', 'https://indonesia-covid-19.mathdro.id/api/provinsi', true)
 request.onload = function(){
-    loader()
+    const loader = document.getElementById('loader')
+    const content = document.getElementById('content')
+
+    setTimeout(() => {
+        loader.setAttribute('style', 'display: none')
+        content.setAttribute('style', 'display: flex')
+    }, 1500)
 
     var data = JSON.parse(this.response)
 
     data.data.forEach((kasus) => {
-        const card = document.createElement('div')
-        card.setAttribute('class', 'card')
-        const title = document.createElement('h3')
-        title.textContent = '#' + (counter+1) + '\t' + kasus.provinsi
-        const kasusPosi = document.createElement('p')
-        kasusPosi.textContent = kasus.kasusPosi + '\t' + 'Positive'
-        const kasusSemb = document.createElement('p')
-        kasusSemb.textContent = kasus.kasusSemb + '\t' + 'Recovered'
-        const kasusMeni = document.createElement('p')
-        kasusMeni.textContent = kasus.kasusMeni + '\t' + 'Death'
-
-        semuaData.push({title: kasus.provinsi, positive: kasus.kasusPosi, recovered: kasus.kasusSemb, death: kasus.kasusMeni})
-
-        container.appendChild(card)
-        card.appendChild(title)
-        card.appendChild(kasusPosi)
-        card.appendChild(kasusSemb)
-        card.appendChild(kasusMeni)
-
-        counter += 1
+        if(kasus.provinsi != 'Indonesia') {
+            const card = document.createElement('div')
+            card.setAttribute('class', 'card')
+            const title = document.createElement('h3')
+            title.textContent = '#' + (counter+1) + '\t' + kasus.provinsi
+            const kasusPosi = document.createElement('p')
+            kasusPosi.textContent = kasus.kasusPosi + '\t' + 'Positive'
+            const kasusSemb = document.createElement('p')
+            kasusSemb.textContent = kasus.kasusSemb + '\t' + 'Recovered'
+            const kasusMeni = document.createElement('p')
+            kasusMeni.textContent = kasus.kasusMeni + '\t' + 'Death'
+    
+            semuaData.push({title: kasus.provinsi, positive: kasus.kasusPosi, recovered: kasus.kasusSemb, death: kasus.kasusMeni})
+            
+            container.appendChild(card)
+            card.appendChild(title)
+            card.appendChild(kasusPosi)
+            card.appendChild(kasusSemb)
+            card.appendChild(kasusMeni)
+            
+            counter += 1
+        }
     })
 }
 request.send()
@@ -41,14 +49,8 @@ const newContainer = document.createElement('div')
 newContainer.setAttribute('class', 'newContainer')
 root.appendChild(newContainer)
 
-const searchButton = document.getElementById('search-button')
 const searchInput = document.getElementById('search-input')
-searchButton.addEventListener('click', () => {
-    const newLoader = document.getElementById('loader')
-    newLoader.setAttribute('style', 'display: block')
-    content.setAttribute('style', 'display: none')
-    loader()
-
+searchInput.addEventListener('keyup', () => {
     const inputValue = searchInput.value.toUpperCase()
     
     if(inputValue == '') {
@@ -82,17 +84,10 @@ searchButton.addEventListener('click', () => {
                 counter += 1
             }
         })
+        if(counter == 0) {
+            const warning = document.createElement('p')
+            warning.textContent = 'No Data Available'
+            newContainer.appendChild(warning)
+        }
     }
 })
-
-function loader(){
-    const loader = document.getElementById('loader')
-    const content = document.getElementById('content')
-    const newContent = document.getElementById('newContent')
-
-    setTimeout(() => {
-        loader.setAttribute('style', 'display: none')
-        content.setAttribute('style', 'display: flex')
-        content.setAttribute('style', 'display: flex')
-    }, 1500)
-}
