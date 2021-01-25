@@ -8,13 +8,7 @@ var request = new XMLHttpRequest()
 var semuaData = []
 request.open('GET', 'https://indonesia-covid-19.mathdro.id/api/provinsi', true)
 request.onload = function(){
-    const loader = document.getElementById('loader')
-    const content = document.getElementById('content')
-
-    setTimeout(() => {
-        loader.setAttribute('style', 'display: none')
-        content.setAttribute('style', 'display: flex')
-    }, 1500)
+    loader()
 
     var data = JSON.parse(this.response)
 
@@ -91,3 +85,11 @@ searchInput.addEventListener('keyup', () => {
         }
     }
 })
+
+function loader() {
+    const loader = document.getElementById('loader')
+    const content = document.getElementById('content')
+
+    loader.setAttribute('style', 'display: none')
+    content.setAttribute('style', 'display: flex')
+}
