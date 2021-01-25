@@ -1,14 +1,7 @@
 var request = new XMLHttpRequest()
 request.open('GET', 'https://indonesia-covid-19.mathdro.id/api/', true)
 request.onload = function(){
-    const loader = document.getElementById('loader')
-    const content = document.getElementById('content')
-    
-    setTimeout(() => {
-        loader.setAttribute('style', 'display: none')
-        content.setAttribute('style', 'display: block')
-    }, 1500)
-
+    loader()
     var data = JSON.parse(this.response)
 
     const jumlahKasus = document.getElementById('jumlahKasus')
@@ -25,3 +18,11 @@ request.onload = function(){
 }
 
 request.send()
+
+function loader(){
+    const loader = document.getElementById('loader')
+    const content = document.getElementById('content')
+    
+    loader.setAttribute('style', 'display: none')
+    content.setAttribute('style', 'display: block')
+}
