@@ -1,77 +1,8 @@
-html {
-    height: 100%;
-    background-color:#cee3ff;
-}
-
-body{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* start of header and footer */
-.header > * {
-    background-color: aliceblue;
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-
-.brand {
-    font-size: 25px;
-    float: left;
-    padding: 5px 20px 15px 15px
-}
-
-.menu {
-    float: left;
-    padding: 10px;
-}
-
-.info {
-    float: right;
-    padding: 10px
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0 0 0 0;
-    overflow: hidden;
-}
-
-li a {
-    display: block;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-}
-
-#footer {
-    display: none;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    height: 30px;
-    background-color: aliceblue;
-}
-
-#footer > p {
-    text-align: center;
-    margin: 0;
-}
-/* end of header and footer */
-#loader{
-    display: block;
-    text-align: center;
-    margin: 250px 0 0 0;
-    font-size: large;
-}
-
 #root {
     width: 100%;
 }
 
-#content{
+#content {
     height: 100%;
     display: none;
 }
@@ -87,10 +18,9 @@ li a {
     padding-bottom: 30px;
 }
 
-.card {
+.card-province {
     margin: 10px 100px 10px 100px;
     width: 400px;
-    background-color: aliceblue; 
     border-radius: 5px;
     padding: 20px 0 20px 0;
     height: 170px;
@@ -107,38 +37,16 @@ li a {
 }
 
 #search {
-    float: right;
+    text-align: right;
     padding: 10px
 }
 
-#search-ul {
-    padding: 5px;
-    background-color:#cee3ff;
-}
-
-#search-form > * {
+#search-form>* {
     font-size: medium;
     padding: 5px;
 }
 
 @media screen and (max-width: 600px) {
-    /*header and footer*/
-    .brand{
-        padding: 20px;
-        float: none;
-    }
-    .menu {
-        float: none;
-        margin-bottom: 10px;
-    }
-    .info {
-        display: none;
-    }
-    #footer {
-        display: block;
-    }
-    /*end of header and footer*/
-    
     #search {
         margin: 5px 0px 5px 0px;
     }
@@ -156,4 +64,4 @@ li a {
     .newContainer {
         margin: 0px 20px 0px 20px;
     }
-  }
+}
