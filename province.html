@@ -1,47 +1,48 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="provincestyle.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Covid Tracker</title>
-    <link rel="shortcut icon" href="favicon_io/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
-  </head>
-  <body>
-    <div class="header">
-      <ul>
-        <li class="brand"><a href="#">COVID-19</a></li>
-        <li class="menu"><a href="index.html">Beranda</a></li>
-        <li class="menu"><a href="province.html">Data Provinsi</a></li>
-        <li class="info">LAYANAN DARURAT 0811 1211 2112</li>
-      </ul>
-    </div>
-    
-    <ul id="search-ul">
-      <li></li>
-      <li id="search">
-        <form action="#" id="search-form">
-          <input id="search-input" type="search" placeholder="Search Province" aria-label="Search">
-        </form>
-      </li>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="provincestyle.css">
+
+  <title>Covid Tracker</title>
+  <link rel="shortcut icon" href="favicon_io/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+</head>
+
+<body>
+  <div class="header">
+    <ul>
+      <li class="brand"><a href="#">COVID-19</a></li>
+      <li class="menu"><a href="index.html">Beranda</a></li>
+      <li class="menu"><a href="province.html">Data Provinsi</a></li>
+      <li class="info">LAYANAN DARURAT 0811 1211 2112</li>
     </ul>
+  </div>
 
-    <p id="loader">Loading...</p>
+  <div id="search">
+    <form action="#" id="search-form">
+      <input id="search-input" type="search" placeholder="Search Province" aria-label="Search">
+    </form>
+  </div>
 
-    <div id="content">
-      <div id="root"></div>
-    </div>
-    
-    <div id="footer">
-      <p>LAYANAN DARURAT 0811 1211 2112</p>
-    </div>
+  <p id="loader">Loading...</p>
 
-    <script src="provincescript.js"></script>
-  </body>
+  <div id="content">
+    <div id="root"></div>
+  </div>
+
+  <div id="footer">
+    <p>LAYANAN DARURAT 0811 1211 2112</p>
+  </div>
+
+  <script src="provincescript.js"></script>
+</body>
+
 </html>
